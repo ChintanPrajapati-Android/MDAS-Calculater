@@ -1,5 +1,6 @@
 package com.example.calculater.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatActivity
@@ -22,10 +23,14 @@ class CalculatorActivity : AppCompatActivity() {
 
         calculatorViewModel.mEvaluateData.observe(this) {
             tvInput.text = it.roundToLong().toString()
-            if (calculatorViewModel.input.isNotEmpty()){
+            if (calculatorViewModel.input.isNotEmpty()) {
                 val exp = TextUtils.join("", calculatorViewModel.input)
                 tvInputHint.text = exp
             }
+        }
+
+        ivHistory.setOnClickListener {
+            startActivity(Intent(this, HistoryActivity::class.java))
         }
 
 

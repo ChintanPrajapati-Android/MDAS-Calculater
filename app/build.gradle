@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.android.extensions'
+    id 'org.jetbrains.kotlin.kapt'
 }
 
 android {
@@ -43,4 +44,22 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'net.objecthunter:exp4j:0.4.8'
+
+
+    //region Room Persistence
+    implementation 'androidx.room:room-runtime:2.4.2'
+    implementation 'androidx.room:room-ktx:2.4.2'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
+    kapt 'androidx.room:room-compiler:2.4.2'
+    //endregion
+
+    //region Kotlin Coroutine
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+    //endregion
+
+    //region LifeCycle Extension (LiveData + ViewModel)
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    //endregion
 }
